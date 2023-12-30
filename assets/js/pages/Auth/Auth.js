@@ -1,5 +1,5 @@
 $(document).on('click', `[data-role="register-user"]`, function () {
-    data = {
+    let data = {
         name: $(`[data-role="name"]`).val(),
         surname: $(`[data-role="surname"]`).val(),
         age: $(`[data-role="age"]`).val(),
@@ -9,17 +9,18 @@ $(document).on('click', `[data-role="register-user"]`, function () {
         rememberMe: false
     };
     console.log(data);
+
     $.ajax({
-        url: `register-user`,
+        url: '/registerUser', // API rotası doğru ise bu rotayı belirtmelisiniz
         type: "POST",
-        data: data,
+        data: JSON.stringify(data), // Verileri JSON formatına dönüştürdük
+        contentType: "application/json", // İçerik tipini belirttik
         success: function (d) {
+            console.log(d);
             console.log("registered successfully");
         },
         error: function (e) {
             console.error(e);
-        },
-        complete: function () {
         }
     });
 });
