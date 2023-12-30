@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--=====================================
+                    META TAG PART START
+        =======================================-->
+        <!-- REQUIRE META -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- TEMPLATE META -->
+        <meta name="name" content="Greeny">
+        <meta name="title" content="Greeny - eCommerce HTML Template">
+        <meta name="keywords" content="organic, food, shop, ecommerce, store, html, bootstrap, template, agriculture, vegetables, webshop, farm, grocery, natural, online store">
+        <!--=====================================
+                    META-TAG PART END
+        =======================================-->
+
+        <!-- WEBPAGE TITLE -->
+        <title>Standard Home - Greeny</title>
+
+        <!--=====================================
+                    CSS LINK PART START
+        =======================================-->
+        <!-- FAVICON -->
+        <link rel="icon" href="images/favicon.png">
+
+        <!-- FONTS -->
+        <link rel="stylesheet" href="fonts/flaticon/flaticon.css">
+        <link rel="stylesheet" href="fonts/icofont/icofont.min.css">
+        <link rel="stylesheet" href="fonts/fontawesome/fontawesome.min.css">
+
+        <!-- VENDOR -->
+        <link rel="stylesheet" href="vendor/venobox/venobox.min.css">
+        <link rel="stylesheet" href="vendor/slickslider/slick.min.css">
+        <link rel="stylesheet" href="vendor/niceselect/nice-select.min.css">
+        <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+
+        <!-- CUSTOM -->
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/home-standard.css">
+        <link rel="stylesheet" type="text/css" href="<%= typeof css !== 'undefined' ? `css/${css}` : '' %>">
+
+
+
+
+        <!--=====================================
+                    CSS LINK PART END
+        =======================================-->
+    </head>
+    <body>
+        <!--=====================================
+                    HEADER PART START
+        =======================================-->
+        <header class="header-part">
+            <div class="container">
+                <div class="header-content">
+                    <div class="header-media-group">
+                        <button class="header-user"><img src="images/user.png" alt="user"></button>
+                        <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+                        <button class="header-src"><i class="fas fa-search"></i></button>
+                    </div>
+
+                    <a href="/" class="header-logo">
+                        <img src="images/logo.png" alt="logo">
+                    </a>
+                    <a href="Login" class="header-widget" title="My Account">
+                        <img src="images/user.png" alt="user">
+                        <span>join</span>
+                    </a>
+
+                    <form class="header-form">
+                        <input type="text" placeholder="Search anything...">
+                        <button><i class="fas fa-search"></i></button>
+                    </form>
+
+                    <div class="header-widget-group">
+                        <a href="compare.html" class="header-widget" title="Compare List">
+                            <i class="fas fa-random"></i>
+                            <sup>0</sup>
+                        </a>
+                        <a href="wishlist.html" class="header-widget" title="Wishlist">
+                            <i class="fas fa-heart"></i>
+                            <sup>0</sup>
+                        </a>
+                        <button class="header-widget header-cart" title="Cartlist">
+                            <i class="fas fa-shopping-basket"></i>
+                            <sup>9+</sup>
+                            <span>total price<small>$345.00</small></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--=====================================
+                    HEADER PART END
+        =======================================-->
+
+
+        <!--=====================================
+                    NAVBAR PART START
+        =======================================-->
+        <nav class="navbar-part">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="navbar-content">
+                            <ul class="navbar-list">
+                                <li class="navbar-item">
+                                    <a class="navbar-link" href="/">home</a>
+                                </li>
+                                <li class="navbar-item">
+                                    <a class="navbar-link" href="/Shop">shop</a>
+                                </li>
+                                <li class="navbar-item dropdown">
+                                    <a class="navbar-link dropdown-arrow" href="#">pages</a>
+                                    <ul class="dropdown-position-list">
+                                        <li><a href="faq.html">faqs</a></li>
+                                        <li><a href="offer.html">offers</a></li>
+                                        <li><a href="profile.html">my profile</a></li>
+                                        <li><a href="wallet.html">my wallet</a></li>
+                                        <li><a href="about.html">about us</a></li>
+                                        <li><a href="Contact-Us">contact us</a></li>
+                                        <li><a href="privacy.html">privacy policy</a></li>
+                                        <li><a href="coming-soon.html">coming soon</a></li>
+                                        <li><a href="blank-page.html">blank page</a></li>
+                                        <li><a href="error.html">404 Error</a></li>
+                                        <li><a href="email-template.html">email template</a></li>
+                                    </ul>
+                                </li>
+                                <li class="navbar-item dropdown">
+                                    <a class="navbar-link dropdown-arrow" href="#">authentic</a>
+                                    <ul class="dropdown-position-list">
+                                        <li><a href="Login">login</a></li>
+                                        <li><a href="register.html">register</a></li>
+                                        <li><a href="reset-password.html">reset password</a></li>
+                                        <li><a href="change-password.html">change password</a></li>
+                                    </ul>
+                                </li>
+                                <li class="navbar-item dropdown">
+                                    <a class="navbar-link dropdown-arrow" href="#">blogs</a>
+                                    <ul class="dropdown-position-list">
+                                        <li><a href="blog-grid.html">blog grid</a></li>
+                                        <li><a href="blog-standard.html">blog standard</a></li>
+                                        <li><a href="blog-details.html">blog details</a></li>
+                                        <li><a href="blog-author.html">blog author</a></li>
+                                    </ul>
+                                </li>
+                                <li class="navbar-item">
+                                    <a class="navbar-link" href="faq.html">need help</a>
+                                </li>
+                                <li class="navbar-item">
+                                    <a class="navbar-link" href="Contact">contact us</a>
+                                </li>
+                            </ul>
+                            <div class="navbar-select-group">
+                                <div class="navbar-select">
+                                    <i class="fas fa-flag"></i>
+                                    <select class="select">
+                                        <option value="english" selected>english</option>
+                                        <option value="bangali">bangali</option>
+                                        <option value="arabic">arabic</option>
+                                    </select>
+                                </div>
+                                <div class="navbar-select">
+                                    <i class="fas fa-funnel-dollar"></i>
+                                    <select class="select">
+                                        <option value="english" selected>doller</option>
+                                        <option value="bangali">pound</option>
+                                        <option value="arabic">taka</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!--=====================================
+                    NAVBAR PART END
+        =======================================-->
+
