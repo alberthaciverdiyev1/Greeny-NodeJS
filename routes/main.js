@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const user = require('../Models/Auth');
-const addBlog = require('../Models/Blogs');
+const Blog = require('../Models/Blogs');
 const bodyParser = require('body-parser');
 
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -32,12 +32,15 @@ router.post('/registerUser', (req, res) => {
   user.create(req.body);
   res.sendStatus(200);
 });
-router.get('/Blogs',(req,res)=>{
-  res.render('Blogs/index')
+router.get('/Blogs', (req, res) => {
+  Blog.find({}).then(x => {
+    res.render('Blogs/index', { blogs: x })
+  })
+
 });
 
 router.post('/Blogs/add', (req, res) => {
-  addBlog.create(req.body);
+  Blog.create(req.body);
   res.redirect('Blogs/index');
 });
 router.get('/addBlog', (req, res) => {
