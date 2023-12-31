@@ -2,7 +2,8 @@ const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const route = require('./routes/main');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
 
 
 mongoose.connect('mongodb://127.0.0.1:27017/Greeny', {
@@ -15,6 +16,7 @@ const port = 8080;
 app.use(express.static('assets'));
 
 app.use('/',route);
+app.use(fileUpload());
 
 app.set('view engine', 'ejs');
 

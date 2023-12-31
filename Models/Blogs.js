@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
-const BlogAddSchema = new mongoose.Schema({
+const BlogSchema = new mongoose.Schema({
     title: { type: String, required: true },
     context: { type: String, required: true },
-    createdAt: { type: Date, default: Date.now }
+    imageURL: { type: String, required: false, default: null },
+    createdAt: { type: Date, default: Date.now },
+    deletedAt: { type: Date, default: null },
+    updatedAt: { type: Date, default: null },
 })
 
-module.exports = mongoose.model("Blog",BlogAddSchema)
+module.exports = mongoose.model("Blog", BlogSchema)
