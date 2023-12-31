@@ -43,8 +43,7 @@ router.get('/Blogs', (req, res) => {
 
 router.post('/Blogs/add', (req, res) => {
   const image = req.files.image;
-  const uploadPath = './assets/images/uploads/' + image.name;
-  image.mv(uploadPath);
+  image.mv('./assets/images/uploads/' + image.name);
   
   Blog.create({
     title: req.body.title,
