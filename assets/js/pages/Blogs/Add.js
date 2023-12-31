@@ -3,6 +3,8 @@ $(function(){
         let data = {
             title: $(`[data-role="title"]`).val(),
             context: $(`[data-role="context"]`).val(),
+            image: $(`[data-role="image"]`)[0].files[0],
+
         };
         console.log(data);
     

@@ -3,6 +3,8 @@ const router = express.Router();
 const user = require('../Models/Auth');
 const Blog = require('../Models/Blogs');
 const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
+router.use(fileUpload());
 
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
@@ -17,7 +19,6 @@ router.get('/Shop', (req, res) => {
 
 router.get('/Login', (req, res) => {
   res.render('Auth/login', { css: 'user-auth.css' });
-
 });
 
 router.get('/Register', (req, res) => {
@@ -32,19 +33,30 @@ router.post('/registerUser', (req, res) => {
   user.create(req.body);
   res.sendStatus(200);
 });
-router.get('/Blogs', (req, res) => {
-  Blog.find({}).then(x => {
-    res.render('Blogs/index', { blogs: x })
-  })
 
+router.get('/Blogs', (req, res) => {
+  Blog.find({})
+    .then((blogs) => {
+      res.render('Blogs/index', { blogs: blogs });
+    })
 });
 
 router.post('/Blogs/add', (req, res) => {
-  Blog.create(req.body);
-  res.redirect('Blogs/index');
+  const image = req.files.image;
+  const uploadPath = './assets/images/uploads/' + image.name;
+  image.mv(uploadPath);
+  
+  Blog.create({
+    title: req.body.title,
+    context: req.body.context,
+    imageURL: image.name
+  });
+  res.redirect('/Blogs');
 });
+
+
 router.get('/addBlog', (req, res) => {
   res.render('Blogs/Add', { css: 'user-auth.css' });
-})
+});
 
 module.exports = router;
