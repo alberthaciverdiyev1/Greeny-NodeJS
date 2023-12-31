@@ -37,6 +37,12 @@ router.post('/registerUser', (req, res) => {
 router.get('/Blogs', (req, res) => {
   Blog.find({})
     .then((blogs) => {
+      blogs.forEach(blog => {
+        const date = new Date(blog.createdAt);
+        const options = { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+        const formattedDate = date.toLocaleString('en-US', options).toUpperCase();
+        blog.date = formattedDate;
+      });
       res.render('Blogs/index', { blogs: blogs });
     })
 });
@@ -55,7 +61,11 @@ router.post('/Blogs/add', (req, res) => {
 router.get('/Blogs/:id/details', (req, res) => {
   Blog.findById(req.params.id)
   .then((x) => {
-      res.render('Blogs/details', { blogDetails: x });
+    const date = new Date(x.createdAt);
+    const options = { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+    const formattedDate = date.toLocaleString('en-US', options).toUpperCase();
+    x.date = formattedDate;
+      res.render('Blogs/details', { css:'blog-details', details: x });
     })
 });
 
