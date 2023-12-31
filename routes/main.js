@@ -44,13 +44,19 @@ router.get('/Blogs', (req, res) => {
 router.post('/Blogs/add', (req, res) => {
   const image = req.files.image;
   image.mv('./assets/images/uploads/' + image.name);
-  
   Blog.create({
     title: req.body.title,
     context: req.body.context,
     imageURL: image.name
   });
   res.redirect('/Blogs');
+});
+
+router.get('/Blogs/:id/details', (req, res) => {
+  Blog.findById(req.params.id)
+  .then((x) => {
+      res.render('Blogs/details', { blogDetails: x });
+    })
 });
 
 
