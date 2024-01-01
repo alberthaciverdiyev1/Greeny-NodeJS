@@ -34,6 +34,28 @@ router.post('/registerUser', (req, res) => {
   res.sendStatus(200);
 });
 
+router.post('/login', async (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+  const foundUser = await user.findOne({ email: email });
+
+  console.log(email);
+  console.log(foundUser);
+
+  if (foundUser) {
+    if (foundUser.password === password) {
+      res.json({ status: 200, message: 'Logged in' });
+    }else{
+      res.json({ status: 404, message: 'Wrong password' });
+    }
+  } else {
+    res.json({ status: 404, message: 'User not found' });
+  }
+
+});
+
+
+
 router.get('/Blogs', (req, res) => {
   Blog.find({})
     .then((blogs) => {
@@ -60,12 +82,12 @@ router.post('/Blogs/add', (req, res) => {
 
 router.get('/Blogs/:id/details', (req, res) => {
   Blog.findById(req.params.id)
-  .then((x) => {
-    const date = new Date(x.createdAt);
-    const options = { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-    const formattedDate = date.toLocaleString('en-US', options).toUpperCase();
-    x.date = formattedDate;
-      res.render('Blogs/details', { css:'blog-details', details: x });
+    .then((x) => {
+      const date = new Date(x.createdAt);
+      const options = { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+      const formattedDate = date.toLocaleString('en-US', options).toUpperCase();
+      x.date = formattedDate;
+      res.render('Blogs/details', { css: 'blog-details', details: x });
     })
 });
 
