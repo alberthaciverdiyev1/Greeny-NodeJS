@@ -14,6 +14,7 @@ const SendMail = (req, res) => {
             pass: "exaapjrawlemoheg",
         },
     });
+    
     const htmlTemplate = `NAME:${req.body.name} <br>
                             SUBJECT:${req.body.subject} <br>
                             MESSAGE:${req.body.message} <br>
