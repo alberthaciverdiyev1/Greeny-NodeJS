@@ -32,6 +32,7 @@ exRoute.route('/Blogs/add').post(blogAddController.Add);
 // Auth controller GET
 exRoute.route('/Register').get(authController.Register);
 exRoute.route('/Login').get(authController.LoginIndex);
+exRoute.route('/Logout').get(authController.LogOut);
 // Auth controller POST
 exRoute.route('/RegisterUser').post(authController.RegisterUser);
 exRoute.route('/Login').post(authController.Login);
