@@ -12,7 +12,6 @@ route.post('/send-mail', (req, res) => {
       pass: "exaapjrawlemoheg",
     },
   });
-console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
   const htmlTemplate = `NAME:${req.body.name} <br>
                         SUBJECT:${req.body.subject} <br>
                         MESSAGE:${req.body.message} <br>

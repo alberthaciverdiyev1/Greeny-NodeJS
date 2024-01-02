@@ -2,7 +2,8 @@ const path = require('path');
 const express = require('express');
 const expressSession = require('express-session');
 const mongoose = require('mongoose');
-const route = require('./controllers/main');
+
+const routes = require('./routes/main');
 const sendMail = require('./controllers/send');
 // const auth = require('./controllers/Auth/add');
 const bodyParser = require('body-parser');
@@ -18,7 +19,7 @@ const port = 8080;
 
 app.use(express.static('assets'));
 
-app.use('/', route);
+app.use('/', routes);
 app.use('/', sendMail);
 // app.use('/',auth);
 app.use(fileUpload());
