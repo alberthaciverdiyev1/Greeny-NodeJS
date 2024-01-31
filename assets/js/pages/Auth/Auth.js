@@ -41,6 +41,7 @@ $(function () {
             // data: JSON.stringify(data),
             dataType: "json",
             success: function (d) {
+                console.log(d);
                 if (d.status === 200) {
                     $(`#successModal`).show();
                 } else {
