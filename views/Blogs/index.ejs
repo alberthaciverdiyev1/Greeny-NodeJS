@@ -1,5 +1,13 @@
 <%- include('../layouts/partials/header') %>
-    <!--=====================================
+  
+<% if (user) { %>
+    <p>Welcome, <%= user.name %>!</p>
+    <!-- Giriş yapılmışsa görüntülenecek içerik -->
+  <% } else { %>
+    <p>Welcome, Guest!</p>
+    <!-- Giriş yapılmamışsa görüntülenecek içerik -->
+  <% } %>
+<!--=====================================
                 CATEGORY SIDEBAR PART START
         =======================================-->
     <aside class="category-sidebar">
