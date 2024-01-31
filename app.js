@@ -23,6 +23,7 @@ app.use('/', routes);
 app.use('/', sendMail);
 // app.use('/',auth);
 app.use(fileUpload());
+app.use(express.json());
 app.use(expressSession({
   secret: "process.env.SESSION_SECRET",
   resave: false,

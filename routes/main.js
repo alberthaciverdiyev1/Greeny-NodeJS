@@ -8,6 +8,7 @@ exRoute.use(bodyParser.urlencoded({ extended: true }));
 exRoute.use(bodyParser.json());
 const homeController = require('../controllers/Home/index');
 const shopController = require('../controllers/Shop/all');
+const productAddController = require('../controllers/Shop/add');
 const blogController = require('../controllers/Blogs/all');
 const blogAddController = require('../controllers/Blogs/add');
 const authController = require('../controllers/Auth/auth');
@@ -19,6 +20,8 @@ exRoute.route('/').get(homeController.indexPage);
                                                                                 //SHOP
 // Shop controller
 exRoute.route('/Shop').get(shopController.index);
+exRoute.route('/Shop').post(shopController.index);
+exRoute.route('/Shop/add').post(productAddController.add);
 
 
                                                                                 // BLOG
