@@ -9,7 +9,7 @@ const add = async (req, res) => {
     }
 
     try {
-        const createdProduct = await Products.create({
+       await Products.create({
             category_id,
             city_id,
             price,
@@ -20,7 +20,7 @@ const add = async (req, res) => {
             imageURL,
         });
 
-        return res.status(201).json(createdProduct);
+        return res.status(201);
     } catch (err) {
         console.error(err);
         return res.status(500).json({ error: 'Internal Server Error' });

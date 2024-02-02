@@ -26,48 +26,40 @@ const RegisterUser = async (req, res) => {
   }
 };
 
-module.exports = RegisterUser;
-
 const Login = async (req, res) => {
   try {
     const { email, password } = req.body;
     const foundUser = await User.findOne({ email: email });
+    // return res.status(200).json({ foundUser: foundUser })
     req.session = {};
 
     if (foundUser) {
-      const hashedPassword = await bcrypt.compare(password, foundUser.password);
-
-      if (hashedPassword) {
-        // const token = jwt.sign({ userId: foundUser._id }, process.env.JWT_SECRET, {
-        //   expiresIn: '1h',
-        // });
-
+      bcrypt.compare(password, foundUser.password, (err, isPasswordValid) => {
+        if (err || !isPasswordValid) {
+          return res.status(401).json({ error: err, isPasswordValid: isPasswordValid });
+        }
         const token = jwt.sign({ userId: foundUser._id }, 'my-secret-key-is-2001', {
-          expiresIn: '1h',
+          expiresIn: '1d',
         });
-
-        req.session.user = {
-          userId: foundUser._id,
-          email: foundUser.email,
-          name: foundUser.name,
-          surname: foundUser.surname,
-          gender: foundUser.gender,
-        };
-
-        res.locals.user = req.session.user || null;
-
-      } else {
-        res.status(404).json({ message: 'Wrong password' });
-      }
+        // const token = jwt.sign({ userId: foundUser._id},'my-secret-key-is-2001');
+        res.cookie('jsonwebtoken', token, {
+          httpOnly: true,
+          maxAge: 1000 * 60 * 60 * 24
+        })
+        
+        res.status(200).json({ status: 200, message: 'Succesfully enteed.', token });
+      });
     } else {
       res.locals.user = null;
       res.status(404).json({ message: 'Wrong email or password' });
     }
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Internal Server Error' });
+    res.status(500).json({ message: 'Internal server error' });
   }
 };
+
+
 
 const LogOut = (req, res) => {
   req.session.destroy();

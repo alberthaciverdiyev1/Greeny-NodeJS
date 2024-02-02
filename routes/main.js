@@ -13,9 +13,10 @@ const blogController = require('../controllers/Blogs/all');
 const blogAddController = require('../controllers/Blogs/add');
 const authController = require('../controllers/Auth/auth');
 const contactController = require('../controllers/Contact/index');
+const auth = require('../middlewares/AuthMiddleware')
                                                                                 // HOME
 // Home controller
-exRoute.route('/').get(homeController.indexPage);
+exRoute.route('/').get(auth.authenticationToken,homeController.indexPage);
 
                                                                                 //SHOP
 // Shop controller

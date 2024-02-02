@@ -44,6 +44,7 @@ $(function () {
                 console.log(d);
                 if (d.status === 200) {
                     $(`#successModal`).show();
+                    document.location.href="/";
                 } else {
                     $(`#successModal`).show();
                 }
