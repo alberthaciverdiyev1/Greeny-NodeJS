@@ -9,6 +9,7 @@ const routes = require('./routes/main');
 const sendMail = require('./controllers/send');
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
+const {checkUser} = require('./middlewares/AuthMiddleware');
 
 
 mongoose.connect('mongodb://127.0.0.1:27017/Greeny', {
@@ -19,6 +20,7 @@ const port = 8080;
 const app = express();
 app.use(cookieParser())
 app.use(express.static('assets'));
+app.get('*',checkUser)
 app.use('/', routes);
 app.use('/', sendMail);
 app.use(fileUpload());
