@@ -2,6 +2,7 @@ $(function () {
     $(document).on('click', `[data-role="register-user"]`, function () {
         let data = {
             name: $(`[data-role="name"]`).val(),
+            username: $(`[data-role="username"]`).val(),
             surname: $(`[data-role="surname"]`).val(),
             age: $(`[data-role="age"]`).val(),
             gender: "male",
@@ -9,7 +10,6 @@ $(function () {
             password: $(`[data-role="password"]`).val(),
             rememberMe: false
         };
-        console.log(data);
 
         $.ajax({
             url: '/registerUser',

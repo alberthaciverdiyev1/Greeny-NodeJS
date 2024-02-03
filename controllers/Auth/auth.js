@@ -16,14 +16,23 @@ const LoginIndex = (req, res) => {
 
 const RegisterUser = async (req, res) => {
   try {
-    const { name, surname, email, age, password } = req.body;
+    const { name, surname, email, age, password, username } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ name, surname, email, age, password: hashedPassword });
+    const newUser = new User({ username, name, surname, email, age, password: hashedPassword });
     await newUser.save();
     res.status(201).json('User created successfully');
   } catch (err) {
-    res.status(400).json({ error: err });
+    if (err.name === "ValidationError") {
+      let validateError = {};
+      Object.keys(err.errors).forEach((key) => {
+        validateError[key] = err.errors[key].message;
+      });
+      res.status(500).json({ validateError });
+    } else {
+      res.status(400).json({ error: err });
+    }
   }
+
 };
 
 const Login = async (req, res) => {
@@ -46,7 +55,7 @@ const Login = async (req, res) => {
           httpOnly: true,
           maxAge: 1000 * 60 * 60 * 24
         })
-        
+
         res.status(200).json({ status: 200, message: 'Succesfully enteed.', token });
       });
     } else {
@@ -62,7 +71,9 @@ const Login = async (req, res) => {
 
 
 const LogOut = (req, res) => {
-  req.session.destroy();
+  res.cookie('jsonwebtoken', "", {
+    maxAge: 1
+  })
   res.redirect('/');
 };
 module.exports = {
