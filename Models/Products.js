@@ -4,6 +4,7 @@ const ProductSchema = new mongoose.Schema({
     city_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Cities', required: false, default: null },
     price: { type: Number, required: true },
     name: { type: String, required: false, default: null },
+    title: { type: String, required: false, default: null },
     description: { type: String, required: false, default: null },
     phone: { type: String, required: true, default: null },
     contact_type_id: { type: String, required: false, default: null },

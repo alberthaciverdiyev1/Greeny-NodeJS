@@ -5,31 +5,47 @@ const addIndex = (req, res) => {
 }
 
 const add = async (req, res) => {
-    console.log(req.body);
-    const { category_id, city_id, price, description, phone, contact_type, email, imageURL } = req.body;
+    console.log("aaaaaaaaaaaaaaaaaaaaaa");
+    // const data = {
+    //     category_id: req.body.category_id,
+    //     title: req.body.title,
+    //     city_id: req.body.city_id,
+    //     price: req.body.price,
+    //     description: req.body.description,
+    //     phone: req.body.phone,
+    //     contact_type: req.body.contact_type,
+    //     email: req.body.email,
+    //     imageURL: req.body.imageURL
+    // };
 
-    if (isNaN(price)) {
+    const data = {
+        // category_id: 1, // Replace with an actual category ID
+        title: 'Example Product', // Replace with an actual product title
+        name: 'Albert', // Replace with an actual product title
+        // city_id: 2, // Replace with an actual city ID
+        price: 25.99, // Replace with an actual product price
+        description: 'This is an example product description.', // Replace with an actual product description
+        phone: '123-456-7890', // Replace with an actual phone number
+        contact_type: 'email', // Replace with 'phone' or 'email' based on your needs
+        email: 'example@email.com', // Replace with an actual email address
+        imageURL: 'https://example.com/image.jpg' // Replace with an actual image URL
+    };
+    
+
+    if (isNaN(data.price)) {
         return res.status(400).json({ error: 'Price must be a number' });
     }
 
     try {
-        await Products.create({
-            category_id,
-            city_id,
-            price,
-            description,
-            phone,
-            contact_type,
-            email,
-            imageURL,
-        });
+         await Products.create(data);
 
-        return res.status(201);
+        return res.status(201).json({ success: true, message: 'Product created successfully'});
     } catch (err) {
         console.error(err);
         return res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+
 
 module.exports = {
     add, addIndex
