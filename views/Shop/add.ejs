@@ -1,0 +1,93 @@
+<%- include('../layouts/partials/header') %>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+
+            <div class="col-md-8">
+                <!-- Select 1 ve Select 2 aynı satırda -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="select1" class="form-label">Category:</label>
+                        <select id="select1" class="form-select">
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="select2" class="form-label">City:</label>
+                        <select id="select2" class="form-select">
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="textInput1" class="form-label">Price:</label>
+                        <input type="number" id="textInput1" class="form-control">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="textInput2" class="form-label">Title:</label>
+                        <input type="text" id="textInput2" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="textbox" class="form-label">Description:</label>
+                        <textarea id="textbox" class="form-control" placeholder="Context"
+                            style="height: 125px;"></textarea>
+
+                    </div>
+                </div>
+                <!-- Select 3 ve Textbox aynı satırda -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="select3" class="form-label">Contact type :</label>
+                        <select id="select3" class="form-select">
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="textInput3" class="form-label">Phone:</label>
+                        <input type="text" id="textInput3" class="form-control">
+                    </div>
+                </div>
+
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="textInput3" class="form-label">Email:</label>
+                        <input type="email" id="textInput3" class="form-control">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="numberInput" class="form-label">Name:</label>
+                        <input type="text" id="numberInput" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="form-group">
+                        <input class="form-control" type="file" name="image"></input>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-12 text-center">
+                        <button type="button" class="btn btn-inline">Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+
+    <%- include('../layouts/partials/footer') %>

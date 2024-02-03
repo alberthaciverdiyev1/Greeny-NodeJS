@@ -1,5 +1,9 @@
 const Products = require('../../Models/Products');
 
+const addIndex = (req, res) => {
+    res.render('Shop/add');
+}
+
 const add = async (req, res) => {
     console.log(req.body);
     const { category_id, city_id, price, description, phone, contact_type, email, imageURL } = req.body;
@@ -9,7 +13,7 @@ const add = async (req, res) => {
     }
 
     try {
-       await Products.create({
+        await Products.create({
             category_id,
             city_id,
             price,
@@ -28,5 +32,5 @@ const add = async (req, res) => {
 };
 
 module.exports = {
-    add
+    add, addIndex
 };

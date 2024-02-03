@@ -22,7 +22,8 @@ exRoute.route('/').get(auth.authenticationToken,homeController.indexPage);
 // Shop controller
 exRoute.route('/Shop').get(shopController.index);
 exRoute.route('/Shop').post(shopController.index);
-exRoute.route('/Shop/add').post(productAddController.add);
+exRoute.route('/Shop/add-product').post(productAddController.add);
+exRoute.route('/Shop/add').get(productAddController.addIndex);
 
 
                                                                                 // BLOG

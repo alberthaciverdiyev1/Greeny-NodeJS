@@ -75,22 +75,20 @@
                 </form>
                 <% if(user){ %>
                     <ul class="navbar-item dropdown">
-                        <a href="Login" class="header-widget" title="My Account">
-                            <img src="/images/user.png" alt="user">
-                            <span>
-                                <%= user.username %>
-                            </span>
-                        </a>
-                        <ul class="dropdown-position-list">
-                            <li><a href="logout">LogOut</a></li>
-                        </ul>
+                        <li>
+                            <a href="Login" class="header-widget" title="My Account">
+                                <img src="/images/user.png" alt="user">
+                                <span><%= user.username %></span>
+                            </a>
+                            <ul class="dropdown-position-list">
+                                <li><a href="logout">LogOut</a></li>
+                            </ul>
+                        </li>
                     </ul>
-
-
+                    
                     <div class="header-widget-group">
-                        <a href="compare.html" class="header-widget" title="Compare List">
-                            <i class="fas fa-random"></i>
-                            <sup>0</sup>
+                        <a href="/shop/add" class="btn btn-inline" style="height: 40px; display: inline-block;">
+                            <i class="fas fa-plus"></i>
                         </a>
                         <a href="wishlist.html" class="header-widget" title="Wishlist">
                             <i class="fas fa-heart"></i>
@@ -102,6 +100,7 @@
                             <span>total price<small>$345.00</small></span>
                         </button>
                     </div>
+                    
                     <% }else{ %>
                         <a href="Login" class="header-widget" title="My Account">
                             <img src="/images/user.png" alt="user">
@@ -150,7 +149,7 @@
                             <li class="navbar-item dropdown">
                                 <a class="navbar-link dropdown-arrow" href="Blogs">blogs</a>
                                 <ul class="dropdown-position-list">
-                                    <li><a href="addBlog">Add Blog</a></li>
+                                    <li><a href="/addBlog">Add Blog</a></li>
                                 </ul>
                             </li>
 
