@@ -6,8 +6,6 @@ $(function(){
             image: $(`[data-role="image"]`)[0].files[0],
 
         };
-        console.log(data);
-    
         $.ajax({
             url: '/Blogs/add', 
             type: "POST",
