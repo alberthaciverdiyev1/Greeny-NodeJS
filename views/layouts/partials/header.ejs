@@ -69,6 +69,10 @@
                 <a href="/" class="header-logo">
                     <img src="/images/logo.png" alt="logo">
                 </a>
+                <form class="header-form">
+                    <input type="text" placeholder="Search anything...">
+                    <button><i class="fas fa-search"></i></button>
+                </form>
                 <% if(user){ %>
                     <ul class="navbar-item dropdown">
                         <a href="Login" class="header-widget" title="My Account">
@@ -81,32 +85,29 @@
                             <li><a href="logout">LogOut</a></li>
                         </ul>
                     </ul>
+
+
+                    <div class="header-widget-group">
+                        <a href="compare.html" class="header-widget" title="Compare List">
+                            <i class="fas fa-random"></i>
+                            <sup>0</sup>
+                        </a>
+                        <a href="wishlist.html" class="header-widget" title="Wishlist">
+                            <i class="fas fa-heart"></i>
+                            <sup>0</sup>
+                        </a>
+                        <button class="header-widget header-cart" title="Cartlist">
+                            <i class="fas fa-shopping-basket"></i>
+                            <sup>9+</sup>
+                            <span>total price<small>$345.00</small></span>
+                        </button>
+                    </div>
                     <% }else{ %>
                         <a href="Login" class="header-widget" title="My Account">
                             <img src="/images/user.png" alt="user">
                             <span>LOGIN</span>
                         </a>
                         <% } %>
-                            <form class="header-form">
-                                <input type="text" placeholder="Search anything...">
-                                <button><i class="fas fa-search"></i></button>
-                            </form>
-
-                            <div class="header-widget-group">
-                                <a href="compare.html" class="header-widget" title="Compare List">
-                                    <i class="fas fa-random"></i>
-                                    <sup>0</sup>
-                                </a>
-                                <a href="wishlist.html" class="header-widget" title="Wishlist">
-                                    <i class="fas fa-heart"></i>
-                                    <sup>0</sup>
-                                </a>
-                                <button class="header-widget header-cart" title="Cartlist">
-                                    <i class="fas fa-shopping-basket"></i>
-                                    <sup>9+</sup>
-                                    <span>total price<small>$345.00</small></span>
-                                </button>
-                            </div>
             </div>
         </div>
     </header>
