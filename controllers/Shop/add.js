@@ -1,4 +1,5 @@
 const Products = require('../../Models/Products');
+const ProductImmages = require('../../Models/ProductImages');
 const cloudinary = require('cloudinary').v2
 
 
@@ -85,7 +86,11 @@ const add = async (req, res) => {
             return res.status(400).json({ error: 'Price must be a number' });
         }
 
-        await Products.create(data);
+        const product = await Products.create(data);
+        await ProductImmages.create({
+            imageURL: image.name,
+            productId: product._id,
+        });
 
         return res.status(201).json({ success: true, message: 'Product created successfully' });
     } catch (err) {
