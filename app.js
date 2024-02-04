@@ -33,7 +33,12 @@ app.use(express.static('assets'));
 app.get('*', checkUser)
 app.use('/', routes);
 app.use('/', sendMail);
-app.use(fileUpload({ useTempFiles: true }));
+// app.use(fileUpload({useTempFiles: true}));
+
+app.use(fileUpload({
+  useTempFiles : true,
+  tempFileDir : '/tmp/'
+}));
 app.use(express.json());
 // app.use(expressSession({
 //   secret: "process.env.SESSION_SECRET",

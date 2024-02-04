@@ -57,16 +57,19 @@ const addIndex = (req, res) => {
 // };
 
 const add = async (req, res) => {
-    console.log(req.files.image);
     try {
-        const result = await cloudinary.uploader.upload(
-            req.files.image.tempFilePath,
-            {
-                use_filename: true,
-                folder: 'GREENY'
-            }
-        );
-        console.log("RESULT:", result);
+        if (false) {
+            const result = await cloudinary.uploader.upload(
+                req.files.image.tempFilePath,
+                {
+                    use_filename: true,
+                    folder: 'GREENY'
+                }
+            );
+            console.log("RESULT:", result);
+        }
+    const image = req.files.image;
+    image.mv('./assets/images/uploads/product_images/' + image.name);
 
         const data = {
             title: req.body.title,
@@ -75,7 +78,7 @@ const add = async (req, res) => {
             phone: req.body.phone,
             contact_type: req.body.contact_type,
             email: req.body.email,
-            imageURL: result.secure_url // Update this line to use the secure_url from the Cloudinary response
+            imageURL: image.name ?? null 
         };
 
         if (isNaN(data.price)) {
